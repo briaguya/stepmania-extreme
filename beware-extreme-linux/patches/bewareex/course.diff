@@ -1,0 +1,17 @@
+--- Course.cpp	Thu Jan 12 14:59:16 2006
++++ Course.cp_	Mon Jul 17 02:07:14 2006
+@@ -1106,10 +1106,10 @@
+ 	split(THEME->GetMetric("ScreenRanking", "CoursesToShow"), ",", rankingsongs);
+ 
+ 	for(unsigned i=0; i < rankingsongs.size(); i++)
+-		if (rankingsongs[i].CompareNoCase(m_sPath))
+-			return true;
+-
+-	return false;
++		if (!rankingsongs[i].CompareNoCase(m_sPath))
++			return false;
++	//if the song is *not* in the list, it must return true. screenranking expects this.
++	return true;
+ }
+ 
+ void Course::GetAllCachedTrails( vector<Trail *> &out )

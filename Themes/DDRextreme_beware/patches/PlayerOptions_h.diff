@@ -1,0 +1,10 @@
+--- PlayerOptions.h	Thu Jan 12 14:59:18 2006
++++ PlayerOptions.h_	Sat Jul 01 23:11:51 2006
+@@ -16,6 +16,7 @@
+ 	void Init();
+ 	void Approach( const PlayerOptions& other, float fDeltaSeconds );
+ 	CString GetString() const;
++	CString GetStringGameMode() const;
+ 	CString GetSavedPrefsString() const;	// only the basic options that players would want for every song
+ 	static CString ThemeMod( CString sOneMod );
+ 	CString GetThemedString() const;

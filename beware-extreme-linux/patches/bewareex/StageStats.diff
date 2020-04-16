@@ -1,0 +1,12 @@
+--- StageStats.cpp	Thu Jan 12 14:59:16 2006
++++ StageStats.cp_	Mon Mar 27 02:23:42 2006
+@@ -194,6 +194,9 @@
+ 	Grade grade = GRADE_FAILED;
+ 
+ 	float fPercent = (Possible == 0) ? 0 : Actual / Possible;
++	
++	if (GAMESTATE->m_CurrentPlayerOptions[pn].m_bTransforms[PlayerOptions::TRANSFORM_LITTLE])
++		fPercent = fPercent / 2;
+ 
+ 	FOREACH_Grade(g)
+ 	{

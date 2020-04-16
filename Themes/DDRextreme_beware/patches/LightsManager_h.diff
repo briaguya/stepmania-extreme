@@ -1,0 +1,18 @@
+--- LightsManager.h	Mon Jun 07 18:20:02 2004
++++ LightsManager.h_	Sat Oct 06 03:03:25 2007
+@@ -34,6 +34,7 @@
+ 	LIGHTSMODE_STAGE,
+ 	LIGHTSMODE_ALL_CLEARED,
+ 	LIGHTSMODE_TEST,
++	LIGHTSMODE_EVALUATION,
+ 	NUM_LIGHTS_MODES
+ };
+ const CString& LightsModeToString( LightsMode lm );
+@@ -63,6 +64,7 @@
+ private:
+ 	float m_fSecsLeftInCabinetLightBlink[NUM_CABINET_LIGHTS];
+ 	float m_fSecsLeftInGameButtonBlink[MAX_GAME_CONTROLLERS][MAX_GAME_BUTTONS];
++	float m_fLightsModeSince;
+ 
+ 	LightsDriver* m_pDriver;
+ 	LightsMode m_LightsMode;

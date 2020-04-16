@@ -1,0 +1,118 @@
+this is the source code to build beware stepmania extreme on linux. this is the normal way to get it running on linux. it does things that are necessary to avoid or fix compiler errors and compiles.
+
+
+REQUIREMENTS
+------------
+this has been tested to work on x86 and x64 systems.
+
+
+
+you need the following on the system before attempting to compile.
+
+gcc (tested on 4.4.3, 4.6.3, 4.7.2)
+patch
+autoconf and automake
+libpng
+libjpeg
+openGL
+GLU
+SDL >= 1.2.6
+libvorbis
+
+the following is a quick way to ensure required things are installed for various distros. this is not guaranteed to work:
+
+DEBIAN / UBUNTU:
+
+# apt-get install gcc g++ patch autoconf automake libpng-dev libjpeg-dev libgl1-mesa-dev libglu1-mesa-dev libsdl-dev libvorbis-dev
+
+tested on ubuntu 10.04 (x86), 12.10 (x86), 13.4 beta (x64)
+tested on debian squeeze (x86), wheezy (testing) (x64)
+
+
+FEDORA / RED HAT:
+
+# yum install gcc gcc-c++ patch autoconf automake mesa-libGL-devel mesa-libGLU-devel SDL-devel libpng-devel libjpeg-devel libvorbis-devel
+
+tested on fedora 18 (x64)
+
+
+GENTOO:
+
+# emerge media-libs/alsa-lib media-libs/glu media-libs/libogg media-libs/libpng media-libs/libsdl media-libs/libvorbis virtual/jpeg virtual/opengl xorg-server
+
+tested on gentoo, march 2013, x64
+
+
+ARCHLINUX:
+
+# pacman -S patch gcc make autoconf automake sdl mesa-libgl glu libpng libjpeg libvorbis pkg-config
+
+tested on archlinux, march 2013, x64
+
+
+HOW TO
+------
+
+meet the requirements, then run ./build.sh, if all goes correctly you will have a "stepmania" binary in the build dir.
+
+move the stepmania binary into the root of the simulation dir (where Songs, etc, are subdirs)
+
+the "libs" subdir must remain where the build process created it, the stepmania binary depends on it. take this into account when deciding where to put the build dir, i recommend putting it inside the beware extreme simulation dir.
+
+the following is of interest if the process fails:
+
+this script does 3 things. patch, build ffmpeg, build stepmania. these can be done on their own, the scripts are in the scripts subdir as desired/necessary to deal with problems.
+
+the patch script (called from build or otherwise) is protected against making the changes a second time.
+
+
+KNOWN ISSUES:
+------------
+
+it is common for linux desktops to use pulseaudio. stepmania 3.9 does not support pulseaudio.
+if you get errors like "Device or resource busy", pasuspender may help, use it like:
+
+./pasuspender stepmania
+
+if pulseaudio is not the cause, alsa configuration involving dmix may help.
+
+
+a possible problem is that stepmania runs at 30 fps while vsync is enabled. 
+this is caused by the window manager stealing frames/vblanks.
+disabling vsync is a workaround. one can also choose a different desktop/window manager that doesn't use openGL.
+
+
+CREDITS
+-------
+this linux support for beware extreme has been made possible by the following:
+
+
+vyhd, from openITG, for useful advice and proof of concept
+
+augustg, for maintaining stepmania 3.9 on github
+
+villadelfia: advice
+
+matja: testing on gentoo, contributions to build process
+
+BACKGROUND INFORMATION
+----------------------
+
+this package contains stepmania 3.9 (github version), ffmpeg 0.4.9pre1, lua 5.0.3, patches to make them compile, and the patches that turn SM 3.9 into beware extreme. that is, you can also use this to compile the normal SM 3.9 on linux by not using the beware extreme patches.
+
+the included stepmania is the version from github that has been updated to work better on more modern systems.
+it can be obtained again with:
+
+git clone git://github.com/augustg/stepmania-3.9.git
+
+one of its updates is to use a later ffmpeg version, but i tried that and i didn't get it to work. even if it compiled, it still showed no videos. i did get it to work by undoing that change and using ffmpeg 0.4.9pre1, which the original SM 3.9 used.
+
+i couldn't find ffmpeg 0.4.9pre1 for download anywhere, but i could get it from their legacy svn:
+
+svn -r{2004-08-10} checkout svn://svn.ffmpeg.org/ffmpeg/trunk
+
+ffmpeg 0.4.9 and lua 5.0 are included in the package because these libraries are old and no longer available on modern distros, to save on the user having to obtain and compile them.
+
+
+stepmania is compiled without mp3 support, because the MAD mp3 library may be difficult to install for legal reasons. beware extreme does not include any mp3 files but you may run into this if you try to add your own songs with mp3 files. in this case, modify the build-sm script and remove the --without-mp3 setting.
+

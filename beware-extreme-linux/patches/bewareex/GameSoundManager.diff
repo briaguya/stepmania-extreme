@@ -1,0 +1,21 @@
+--- GameSoundManager.cpp	Thu Jan 12 14:59:16 2006
++++ GameSoundManager.cp_	Sun Jun 18 15:59:35 2006
+@@ -10,6 +10,7 @@
+ #include "PrefsManager.h"
+ #include "RageDisplay.h"
+ #include "AnnouncerManager.h"
++#include "RandomNumber.h"
+ 
+ GameSoundManager *SOUND = NULL;
+ 
+@@ -255,7 +256,9 @@
+ 	if( arraySoundFiles.empty() )
+ 		return;
+ 
+-	int index = rand() % arraySoundFiles.size();
++	//int index = rand() % arraySoundFiles.size();
++	//C random generators have bad randomness in low bits and recommend different method -beware
++	int index = randomnumber( arraySoundFiles.size() );
+ 	SOUNDMAN->PlayOnce( sPath + arraySoundFiles[index] );
+ }
+ 

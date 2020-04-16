@@ -1,0 +1,270 @@
+patches: these can be applied on the SM source, 3.9 final or CVS compatible, they change stepmania behavior to be more like ddr (extreme)
+
+GameManager:
+correct X positions for arrows in game - directly under the life meters.
+
+marvelousghost:
+in EX, even if marvelous is not used, there are white explosions for marvelous accurate steps.
+
+MusicWheel:
+music wheel entries fading out to black away from the center.
+use color "GroupSectionColor" from the metrics, for group sections
+
+MusicWheelItem:
+fix a bug in SM, revealed by the musicwheel patch.
+
+NoteField:
+the "up" column must have the notes drawn the other way around so in case of overlapping, the tips of the arrows are visible, not the rear ends.
+
+ScreenEvaluation:
+show the blocky max combo digits. show 3 digit columns if possible.
+
+vividnotes:
+100% exact note colors behavior for vivid and solo notes, like DDR, to be used with special noteskin
+
+NoteDisplay:
+fix frame rounding bug (works for 16 and 64 color frames)
+support "ddrvivid", vivid note colors exactly like ddr
+
+Banner, FadingBanner, ScreenSelectMusic:
+show ABC banner in ABC sort modes
+show "genre" (group) scrolling banner 
+scroll position based on timestamp to fix randomly changing position between banners
+
+ScreenSelectMusic:
+let the last song's music play when browsing sections, instead of common menu music
+
+GameSoundManager:
+fix random call in "play random sound from dir" for better randomness
+
+MusicWheelItem:
+in ABC sort modes, font + zoomX/Y and X factor
+
+GameState, DancingCharacters:
+allow beginner helper while having dancing characters set to off
+
+BeginnerHelper:
+make beginner helper animate at correct speed instead of too fast (assuming the available bones files)
+
+MusicWheel:
+if a song/course is selected and start is pressed, make wheel entries except current song dark
+
+Background:
+do not show danger if beginnerhelper shows
+
+ScoreKeeperMAX2, StageStats: if little mod is enabled, make score and grade only half as good. this makes the little mod "safe". this is somewhat like arcade (in reality it isn't half; its the ratio of 4th notes / all notes in the original chart)
+
+SongManager: remove word filters para para paradise, beatmania, so the long name shows in the wheel
+
+ScreenOptions: show correct line highlight graphics for player 1, 2, and both
+
+difficultymeter: symmetric feet indicators in song selection screen
+
+RageSoundDriver_WaveOut: made waveout latency shorter (2048 sample blocks)
+
+ScreenOptions: draw cursor over underlines to allow underlines graphic to be dark.
+
+SongManager: red song entries can be overriden with theme: Other/songinfo.ini, [songname] RedEntry=(0 or 1)
+
+ScreenSelectMusic, DifficultyMeter, DifficultyMeter.h: glowing feet can be overridden with theme: Other/songinfo.ini, [songname] GlowFeet=(0 or 1)
+
+gradedisplay, screenevaluation: exact ddr like grades settle animations. needs custom grades graphic. AAAA grade is not shown.
+
+screenmanager: show credits indicators like ddr (if not in home mode). also event mode in the center (posX 320)
+
+screenevaluation: show percentage bar for oni eval screen (and can be used for EM2 theme). needs "percentbar" metrics
+
+screenevaluation: disable the display "it's a new record" in eval screen for machine records - only personal record
+
+musicwheel: if the default sort is a mode which is not in the cycle list, make the next mode "group" (not "title")
+
+screeninstructions: show for difficulties up to standard, not up to light
+
+randomnumber.h, gradedisplay,gamesoundmanager,musicwheel: implemented "randomnumber" define which should be used to get 0 <= random < n
+
+ScreenSelectMusic,musicwheel: "random" song entry behavior like ddr (starts random song instead of using roulette effect)
+
+screengameplay: add new commands: DifficultyP#StageOncommand, used to update the cropping for scroll direction, during a course.
+
+ScreenSelectMusic: oni: don't allow entering mods or changing difficulty by pressing codes
+
+ScreenSelectMusic,musicwheel,gameconstantsandtypes,songutil: added optional "defaultlist" feature; sort mode which shows
+songs from a fixed list in the metrics. also gives ddr style random/roulette behavior.
+
+ScreenSelectMusic, ScreenSelectMusic.h, musicwheel.h: BPM display "scroll" animation like DDR
+
+arroweffects: make arrows show on integer Y coordinates, like ddr. also makes arrows look sharper/better.
+
+screenselectstyle: pad/char sprites like ddr, and the proper characters for p1 and p2.
+
+screengameplay: do not increase number of played songs of dead player (for oni). show "1st", "2nd", etc in nonstop game screen
+
+screengameplay: added code for flashing red behind lifemeters in oni mode
+
+musicwheel: correct sort modes like ex: "by artist" is omitted. "by BPM" has no sections. scrollbar thumb is smaller.
+
+background: make fade last 0.5 sec, not 1 sec.
+
+background: workaround for the bg video rewind glitch (showing one bad frame right after a change)
+
+changed Y position of ready/go graphics to be in the center of the note field area. made "go" graphic stretched to correct width
+
+screenoptionsmaster: difficulties without the feet
+
+screenplayeroptions: added difficultyicon
+
+screengameplay: solo behavior: if one player chooses solo, both have it. also "solo flat" noteskin.
+
+playeroptions: fixed/improved the "mods string" routines, made a "gameplay" version of the string which hides some mods like ddr
+
+playeroptions: patched "next option in list" routines to allow for exact "code" behavior, needs metrics
+
+optioniconrow: make ddr's options appear in the correct columns
+
+ScreenOptions: alternative metrics for option icons which allow them to appear in the optionicon row area. hide underlines on a player's current line.
+
+optionicon: allow an option icon to be represented by a picture, "optionicon option (name)"
+
+grooveradar, ragedisplay_ogl: render groove radar to look like on ddr (1 pixel thick, and fixed non anti aliased rendering looking wrong)
+
+scorekeepermax2, player: count freeze jumps as 1 instead of 2, like ddr - scores are now exactly like ddr (multiple fixes)
+
+musicwheel: onilist, nonstoplist: define the entries in the wheel - order and color of entries, using metrics
+
+courseentrydisplay: show song entries using the difficulty color, like ddr. show "? ? ?" like ddr. Use "CourseEntryDisplay difficulty" instead of common font.
+
+musicwheel: tween course's song list when changing difficulty, like ddr
+
+MusicWheelItem: if course or group text is made narrower to fit, also make it less high, like ddr
+
+difficultymeter: let feet glow according to metrics command
+
+ScreenSelectMusic: - show radar/meter effect for "random" entry - always show the difficultyicon (also on non song entries)
+
+musicwheel: fixed bug: the preferred difficulty filter in the random song selection did not work.
+
+screenranking: correct layout for oni scores
+
+course: fix IsRanking() compare loop bug
+
+screengameplay: fail immideate always for (nonstop) courses (also if event mode)
+
+screenranking: show listed nonstop courses with all "shown difficulties", show listed oni courses with only normal difficulty.
+
+screenevaluation: don't commit score if failed nonstop course, or if event mode
+
+prefsmanager, screenmanager, screenevaluation, screenoptionsmasterprefs, screenoptionsmaster: added arcade style event mode.
+
+screenevaluation: groove bars must be divided by number of songs for nonstop courses. calculate positions of song small banners. code for AAA flashing groove banners.
+
+SongManager: allow newlines in group entries. allow the home version kanji in group entries.
+
+MusicWheelItem: allow metrics for proper zooming and aligning of text of group entries
+
+lifemeterbar: allow hot to show 4 strips and normal or extra stage 2.
+
+ScreenSelectMusic: in course, the course name must show in the "stage" area.
+
+percentagedisplay: animating oni dance points
+
+screengameplay: (oni) course stage number must show 2 digits
+
+lifemeterbar: fixed beginnerhelpers Z buffer issue
+
+bpmdisplay: "random" bpm must have "extra color". don't do 0.5 sec fade.
+
+screenevaluation: font for playeroptions.
+
+playeroptions: in the gameplay string, show speedmod as x2, not 2x
+
+screengameplay: don't show the difficultyicons in demonstration mode
+
+screenevaluation: flashing stages number if you cleared an oni course.
+
+MusicWheelItem: showing grades: turn AAAA into AAA, and use AAAA grade for "no" icon.
+
+ScreenSelectMusic: sorticon sort change command
+
+musicwheel: times related to sort order changing as metrics
+
+screenevaluation: summary announcer plays in last stage's eval screen
+
+screengameplay, player.h: play gameplay comment hot when life is above 0.75, not 1. (like ddr)
+
+combo: the combo in ddr extreme has no shadow.
+
+menutimer: don't do warning animation/sounds in eval screens (15 or 40 secs)
+
+grooveradar: made base tween on/off metrics commands.
+
+gamestate: make "HasEarnedExtraStage" available as LUA command
+
+screenevaluation.h: max 7 song banners. extreme can show 6 (5 stages+extra), can it show 7?
+
+textbanner, SongManager: if "card.png" is in a song dir, use it as it's textbanner. load it on init to cache it.
+
+screenevaluation, gradedisplay: emulate grades glow effect with alpha/addition blend and a second layer so it works on d3d
+
+lightsmanager, lightsmanager.h:
+made to be more like extreme arcade.
+
+background, prefsmanager, prefsmanager.h, screenoptionsmasterprefs:
+added setting to disable BG movies
+
+screenevaluation:
+max combo digits flash faster for AAA
+
+prefsmanager, prefsmanager.h, arch/InputHandler/InputHandler.cpp:
+debounce patch
+
+player:
+announce each multiple of 100 combos only once during a song or course
+
+ctlutil:
+fixed implied type programming error
+
+screenmusicscroll:
+bug fix: duration should depend on metrics, not fixed
+
+gamestate:
+bug fix: a difficulty change by direction (as used when on "random") couldn't work
+
+screenmusicscroll:
+song titles are transliterated
+
+screenjukebox:
+fix: use randominteger in song selection
+
+MusicWheelItem.h, MusicWheelItem, textbanner:
+make the blue musicwheel entries look more bright/blue, like the arcade (the arcade uses multiply blend for this)
+
+screenoptions
+on a non-selected row, mark the selected options with a color, like the arcade (but unlike cs)
+
+screenoptions, screenoptions_h:
+show header option icon in options screen. necessary for it to show for only player 1 or 2.
+add extra text layer for option items to have different colored edge around text
+
+ScreenSelectMusic:
+if changing difficulty on "roulette", change icon
+
+background:
+danger display blinks on the beat
+
+ragedisplay_d3d, ragedisplay_d3d.h:
+use the special line drawing routine anyway (it was commented out), it allows for a correct 1 pixel pixelated line.
+
+prefsmanager:
+change default settings to the correct ones so one can safely delete stepmania.ini to get defaults back.
+
+ragedisplay_ogl:
+disable smoothlines completely, to deal with videocard detection enabling it
+
+ReceptorArrow:
+start blinking on beat 0
+
+ScreenGameplay:
+lock fail type to event mode to prevent getting in the wrong state when one deletes stepmania.ini for defaults
+
+Course:
+random song that has or lacks a string in the cdtitle, for random dancemania and random bemani courses

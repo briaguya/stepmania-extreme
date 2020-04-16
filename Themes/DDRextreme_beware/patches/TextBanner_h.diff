@@ -1,0 +1,20 @@
+--- TextBanner.h_	Thu Jan 12 13:59:18 2006
++++ TextBanner.h	Tue Feb 12 01:28:20 2013
+@@ -17,11 +17,16 @@
+ 		CString sDisplaySubTitle, CString sTranslitSubTitle, 
+ 		CString sDisplayArtist, CString sTranslitArtist );
+ 
+-private:
++//private:
+ 	bool m_bInitted;
+ 	void Init();
+ 
+ 	BitmapText	m_textTitle, m_textSubTitle, m_textArtist;
++
++	// showing a card image instead of text if one is found
++	Sprite				m_sprCard;
++	bool				m_bHasCard;
++
+ };
+ 
+ #endif

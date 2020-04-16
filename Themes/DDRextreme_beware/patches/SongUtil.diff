@@ -1,0 +1,10 @@
+--- SongUtil.cpp	Thu Jan 12 14:59:16 2006
++++ SongUtil.cp_	Mon Jun 19 18:27:29 2006
+@@ -237,6 +237,7 @@
+ 
+ 	switch( so )
+ 	{
++	case SORT_DEFAULTLIST:
+ 	case SORT_PREFERRED:
+ 		return "";
+ 	case SORT_GROUP:	

@@ -1,0 +1,15 @@
+--- ScreenSelectStyle.h	Thu Jan 12 14:59:18 2006
++++ ScreenSelectStyle.h_	Sat Jun 24 02:29:46 2006
+@@ -33,9 +33,10 @@
+ 	Sprite		m_sprExplanation;
+ 	Sprite		m_sprWarning;
+ 	Sprite		m_sprPremium;
+-	
++	Sprite		m_sprChar[MAX_MODE_CHOICES][2];
++	Sprite		m_sprPad[MAX_MODE_CHOICES][2];
+ 	RageSound m_soundChange;
+-
++	int m_currentplayer;
+ 	int m_iSelection;
+ };
+ 

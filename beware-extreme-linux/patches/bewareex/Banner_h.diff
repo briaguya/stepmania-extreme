@@ -1,0 +1,11 @@
+--- Banner.h	Thu Jan 12 14:59:18 2006
++++ Banner.h_	Mon Jun 05 00:48:07 2006
+@@ -30,6 +30,8 @@
+ 	void LoadTABreakFromCharacter( Character* pCharacter );
+ 	void LoadRoulette();
+ 	void LoadRandom();
++	void LoadAbc();
++	void LoadGroup();
+ 	void LoadFallback();
+ 
+ 	void SetScrolling( bool bScroll, float Percent = 0);

@@ -1,0 +1,10 @@
+--- OptionIcon.h	Thu Jan 12 14:59:18 2006
++++ OptionIcon.h_	Mon Jul 03 01:52:05 2006
+@@ -20,6 +20,7 @@
+ protected:
+ 	BitmapText	m_text;
+ 	Sprite		m_spr;
++	Sprite		m_sprOption;
+ };
+ 
+ #endif

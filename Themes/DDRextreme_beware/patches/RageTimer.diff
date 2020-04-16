@@ -1,0 +1,16 @@
+--- RageTimer.cpp	Sat Jun 03 17:32:59 2006
++++ RageTimer.cp_	Sat Jun 03 17:33:29 2006
+@@ -51,11 +51,12 @@
+  * RageTimer AverageTime = tm.Half();
+  * printf("Something happened between now and tm; the average time is %f.\n", tm.Ago());
+  * tm.Touch();
++ * BUGFIX: Shodan: "...unbuffered direct input devices (like the gameport) required positive globaloffset values"
+  */
+ RageTimer RageTimer::Half() const
+ {
+ 	const RageTimer now;
+-	const float ProbableDelay = -(now - *this) / 2;
++	const float ProbableDelay = (now - *this) / 2;
+ 	return *this + ProbableDelay;
+ }
+ 

@@ -1,0 +1,13 @@
+--- libavcodec/dsputil.h	2013-03-15 06:17:17.000000000 +0100
++++ libavcodec/dsputil.h	2013-03-15 06:17:40.000000000 +0100
+@@ -555,6 +555,10 @@
+ }
+ 
+ #ifndef HAVE_LRINTF
++#define HAVE_LRINTF
++#endif
++
++#ifndef HAVE_LRINTF
+ /* XXX: add ISOC specific test to avoid specific BSD testing. */
+ /* better than nothing implementation. */
+ /* btw, rintf() is existing on fbsd too -- alex */

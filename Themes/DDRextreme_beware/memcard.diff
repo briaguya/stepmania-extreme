@@ -1,0 +1,21 @@
+--- metrics.mem	Wed Mar 06 03:10:06 2013
++++ metrics.mem	Wed Feb 27 02:38:51 2013
+@@ -1071,8 +1071,16 @@
+ ScoreFrameP2OnCommand=addx,350;sleep,0.9;decelerate,0.2;addx,-350
+ ScoreFrameP2SortChangeCommand=accelerate,0.066;addx,350;sleep,0.400;decelerate,0.066;addx,-350
+ ScoreFrameP2OffCommand=accelerate,0.2;addx,350
+-ScoreP1OnCommand=hidden,1
+-ScoreP2OnCommand=hidden,1
++ScoreP1OnCommand=addx,350;sleep,0.9;decelerate,0.2;addx,-350
++ScoreP2OnCommand=addx,350;sleep,0.9;decelerate,0.2;addx,-350
++ScoreP1OffCommand=accelerate,0.2;addx,350
++ScoreP2OffCommand=accelerate,0.2;addx,350
++ScoreP1X=533
++ScoreP1Y=221
++ScoreP2X=533
++ScoreP2Y=285
++ScoreP1SortChangeCommand=accelerate,0.066;addx,350;sleep,0.400;decelerate,0.066;addx,-350
++ScoreP2SortChangeCommand=accelerate,0.066;addx,350;sleep,0.400;decelerate,0.066;addx,-350
+ DefaultSort=DEFAULTLIST
+ SongOptionsOnCommand=hidden,1
+ SortIconSortChangeCommand=accelerate,0.18;addy,30;sleep,0.200;decelerate,0.18;addy,-30

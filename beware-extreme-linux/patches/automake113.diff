@@ -1,0 +1,11 @@
+--- configure.ac      2013-03-15 18:47:33.664038110 +0000
++++ configure.ac  2013-03-15 20:39:47.498160595 +0000
+@@ -5,7 +5,7 @@
+ AC_CANONICAL_TARGET
+
+ AM_INIT_AUTOMAKE(StepMania, 3.001)
+-AM_CONFIG_HEADER(src/config.h)
++AC_CONFIG_HEADERS(src/config.h)
+ AM_MAINTAINER_MODE
+
+ # We don't want PROG_CC/CXX default settings, but don't ignore explicit settings.

@@ -1,0 +1,23 @@
+this announcer is based on an older version of katzeextreme.
+i re-did some groups according to watching ddr videos, and cs jp,
+i also had to add 2 missing sounds.
+i used mp3gain to make all mp3's 3 db less loud (0.7 times the original volume),
+which makes it exactly like ddr, compared to the music. 
+i re-encoded some 320 kbps mp3s to make them smaller
+
+changed groups:
+
+evaluation aaa-e
+evaluation final aaa-e removed
+evaluation final added (SM patch because in extreme, all grades have the same announcers. this saves about 4 MB)
+gameplay failed
+gameplay comment danger
+gameplay comment good
+gameplay comment hot
+gameplay comment oni
+gameplay here we go final
+gameplay here we go normal
+gameplay ready
+select music comment general (note: no comment should be played when you press start on a song)
+select music comment hard
+select music comment new

@@ -1,0 +1,11 @@
+--- src/RageUtil_CircularBuffer.h	2013-03-11 00:15:48.000000000 +0100
++++ src/RageUtil_CircularBuffer.h	2013-03-14 07:27:10.000000000 +0100
+@@ -1,6 +1,8 @@
+ #ifndef RAGE_UTIL_CIRCULAR_BUFFER
+ #define RAGE_UTIL_CIRCULAR_BUFFER
+ 
++#include <cstring>
++
+ /* Lock-free circular buffer.  This should be threadsafe if one thread is reading
+  * and another is writing. */
+ template<class T>

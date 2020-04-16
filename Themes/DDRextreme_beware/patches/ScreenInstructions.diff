@@ -1,0 +1,11 @@
+--- ScreenInstructions.cpp	Thu Jan 12 14:59:16 2006
++++ ScreenInstructions.cp_	Sun Jun 18 03:17:05 2006
+@@ -28,7 +28,7 @@
+ 		FOREACH_HumanPlayer(p)
+ 			easiestDifficulty = min( easiestDifficulty, GAMESTATE->m_PreferredDifficulty[p] );
+ 
+-		if( easiestDifficulty > DIFFICULTY_EASY )
++		if( easiestDifficulty > DIFFICULTY_MEDIUM )
+ 		{
+ 			HandleScreenMessage( SM_GoToNextScreen );
+ 			return;

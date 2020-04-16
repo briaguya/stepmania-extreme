@@ -1,0 +1,10 @@
+--- ScreenGameplay.h_	Thu Jan 12 14:59:18 2006
++++ ScreenGameplay.h	Sun Jun 25 17:08:10 2006
+@@ -107,6 +107,7 @@
+ 	Sprite				m_sprStaticBackground;
+ 	Sprite				m_sprLifeFrame;
+ 	LifeMeter*			m_pLifeMeter[NUM_PLAYERS];
++	Sprite				m_sprOniLifeColor[NUM_PLAYERS];
+ 	CombinedLifeMeter*	m_pCombinedLifeMeter;
+ 	Sprite				m_sprStage;
+ 	Sprite				m_sprCourseSongNumber;

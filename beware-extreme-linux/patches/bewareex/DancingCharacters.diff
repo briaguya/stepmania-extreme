@@ -1,0 +1,10 @@
+--- DancingCharacters.cpp	Thu Jan 12 13:59:16 2006
++++ DancingCharacters.cp_	Thu Feb 09 01:28:28 2006
+@@ -57,6 +57,7 @@
+ 			continue;
+ 
+ 		Character* pChar = GAMESTATE->m_pCurCharacters[p];
++		if ( PREFSMAN->m_ShowDancingCharacters == PrefsManager::CO_OFF ) pChar = NULL;
+ 		if( !pChar )
+ 			continue;
+ 

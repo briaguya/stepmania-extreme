@@ -1,0 +1,10 @@
+--- DifficultyMeter.h	Thu Jan 12 14:59:18 2006
++++ DifficultyMeter.h_	Sun May 07 20:03:24 2006
+@@ -16,6 +16,7 @@
+ class DifficultyMeter: public ActorFrame
+ {
+ public:
++	int			glowoverride;
+ 	DifficultyMeter();
+ 
+ 	void Load();

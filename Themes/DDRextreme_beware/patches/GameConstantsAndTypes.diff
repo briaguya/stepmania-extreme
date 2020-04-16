@@ -1,0 +1,10 @@
+--- GameConstantsAndTypes.cpp	Thu Jan 12 14:59:16 2006
++++ GameConstantsAndTypes.cp_	Mon Jun 19 19:05:40 2006
+@@ -81,6 +81,7 @@
+ 	"NONSTOP",
+ 	"ONI",
+ 	"ENDLESS",
++	"DEFAULTLIST",
+ 	"ROULETTE"
+ };
+ XToString( SortOrder );

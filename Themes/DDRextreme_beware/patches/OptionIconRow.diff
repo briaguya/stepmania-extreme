@@ -1,0 +1,29 @@
+--- OptionIconRow.cpp	Thu Jan 12 14:59:16 2006
++++ OptionIconRow.cp_	Sun Jul 02 22:11:40 2006
+@@ -29,7 +29,7 @@
+ 
+ const OptionColumnEntry g_OptionColumnEntries[] =
+ {
+-	{"Boost",		0},
++	{"Boost",		1},
+ 	{"Brake",		0},
+ 	{"Wave",		0},
+ 	{"Expand",		0},
+@@ -50,7 +50,7 @@
+ 	{"Shuffle",		3},
+ 	{"SuperShuffle",3},
+ 	{"Little",		4},
+-	{"NoHolds",		4},
++	{"NoHolds",		6},
+ 	{"Dark",		4},
+ 	{"Blind",		4},
+ 	{"Reverse",		5},
+@@ -79,7 +79,7 @@
+ 
+ 	/* This warns about C1234 and noteskins. */
+ //	LOG->Warn("Unknown option: '%s'", sOptionText.c_str() );
+-	return 0;
++	return 4; //make noteskins appear in column 4
+ }
+ 
+ void OptionIconRow::Load( PlayerNumber pn )

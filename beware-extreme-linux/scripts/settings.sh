@@ -1,0 +1,9 @@
+#!/bin/sh
+
+MAKEPARAMS=-j3
+
+BUILDDIR=`pwd`
+
+LIBDIR=${BUILDDIR}/libs
+LUADIR=${BUILDDIR}/lua-5.0.3
+PATCHDIR=${BUILDDIR}/patches

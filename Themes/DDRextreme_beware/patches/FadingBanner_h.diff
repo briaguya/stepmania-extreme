@@ -1,0 +1,11 @@
+--- FadingBanner.h	Thu Jan 12 14:59:18 2006
++++ FadingBanner.h_	Mon Jun 05 00:52:27 2006
+@@ -23,6 +23,8 @@
+ 	void LoadFromCourse( const Course* pCourse );
+ 	void LoadRoulette();
+ 	void LoadRandom();
++	void LoadAbc();
++	void LoadGroup();
+ 	void LoadFallback();
+ 
+ 	bool LoadFromCachedBanner( const CString &path );

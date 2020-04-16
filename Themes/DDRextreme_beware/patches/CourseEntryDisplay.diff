@@ -1,0 +1,39 @@
+--- CourseEntryDisplay.cpp	Thu Jan 12 13:59:16 2006
++++ CourseEntryDisplay.cp_	Tue Jan 02 01:18:49 2007
+@@ -48,7 +48,7 @@
+ 		this->AddChild( &m_textFoot[pn] );
+ 
+ 		m_textDifficultyNumber[pn].SetName( SEPARATE_COURSE_METERS? ssprintf("DifficultyP%i", pn+1):CString("Difficulty") );
+-		m_textDifficultyNumber[pn].LoadFromFont( THEME->GetPathToF("Common normal") );
++		m_textDifficultyNumber[pn].LoadFromFont( THEME->GetPathToF("CourseEntryDisplay difficulty") );
+ 		SET_XY_AND_ON_COMMAND( &m_textDifficultyNumber[pn] );
+ 		this->AddChild( &m_textDifficultyNumber[pn] );
+ 	}
+@@ -71,6 +71,7 @@
+ 
+ 	m_textFoot[pn].SetText( "1" );
+ 	m_textFoot[pn].SetDiffuse( c );
++	m_TextBanner.SetDiffuse( c );
+ }
+ 
+ void CourseEntryDisplay::LoadFromTrailEntry( int iNum, const TrailEntry *tes[NUM_PLAYERS] )
+@@ -99,8 +100,8 @@
+ 				SetDifficulty( pn, "?", SONGMAN->GetDifficultyColor( dc ) );
+ 		}
+ 
+-		m_TextBanner.LoadFromString( "??????????", "??????????", "", "", "", "" );
+-		m_TextBanner.SetDiffuse( RageColor(1,1,1,1) ); // TODO: What should this be?
++		m_TextBanner.LoadFromString( "? ? ?", "? ? ?", "", "", "", "" );
++//		m_TextBanner.SetDiffuse( RageColor(1,1,1,1) ); // TODO: What should this be?
+ 	}
+ 	else
+ 	{
+@@ -114,7 +115,7 @@
+ 		}
+ 
+ 		m_TextBanner.LoadFromSong( te->pSong );
+-		m_TextBanner.SetDiffuse( SONGMAN->GetSongColor( te->pSong ) );
++//		m_TextBanner.SetDiffuse( SONGMAN->GetSongColor( te->pSong ) );
+ 	}
+ 
+ 	m_textNumber.SetText( ssprintf("%d", iNum) );

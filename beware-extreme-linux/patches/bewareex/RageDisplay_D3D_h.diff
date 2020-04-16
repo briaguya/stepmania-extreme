@@ -1,0 +1,10 @@
+--- RageDisplay_D3D.h_	Sat Sep 18 17:38:12 2004
++++ RageDisplay_D3D.h	Sun Mar 03 02:47:01 2013
+@@ -76,6 +76,7 @@
+ 
+ 	RageCompiledGeometry* CreateCompiledGeometry();
+ 	void DeleteCompiledGeometry( RageCompiledGeometry* p );
++	void DrawLineStripInternal( const RageSpriteVertex v[], int iNumVerts, float LineWidth );
+ 
+ protected:
+ 	void DrawQuadsInternal( const RageSpriteVertex v[], int iNumVerts );

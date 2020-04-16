@@ -1,0 +1,42 @@
+--- GameState.cp_	Mon Feb 11 06:49:04 2013
++++ GameState.cpp	Sat Feb 23 11:49:38 2013
+@@ -184,10 +184,8 @@
+ 
+ 	FOREACH_PlayerNumber(p)
+ 	{
+-		if( PREFSMAN->m_ShowDancingCharacters == PrefsManager::CO_RANDOM)
+-			m_pCurCharacters[p] = GetRandomCharacter();
+-		else
+-			m_pCurCharacters[p] = GetDefaultCharacter();
++		m_pCurCharacters[p] = GetRandomCharacter();
++//		always load character, and then use it or not, but always for beginnerhelper -beware
+ 		ASSERT( m_pCurCharacters[p] );
+ 	}
+ 
+@@ -957,6 +955,9 @@
+ 				this->m_pCurSteps[p]->GetDifficulty() != DIFFICULTY_CHALLENGE )
+ 				continue; /* not hard enough! */
+ 
++			if( this->m_pCurSteps[p]->GetMeter() < 8.0 )
++				continue; /* not hard enough! */				
++				
+ 			/* If "choose EX" is enabled, then we should only grant EX2 if the chosen
+ 			 * stage was the EX we would have chosen (m_bAllow2ndExtraStage is true). */
+ 			if( PREFSMAN->m_bPickExtraStage && this->IsExtraStage() && !this->m_bAllow2ndExtraStage )
+@@ -1752,6 +1753,8 @@
+ 			return false;
+ 		if( asDiff.find(d) == asDiff.end() )
+ 			continue; /* not available */
++			
++		break; //beware - this is necessary
+ 	}
+ 
+ 	return ChangePreferredDifficulty( pn, d );
+@@ -1860,6 +1863,7 @@
+ LuaFunction_NoArgs( StageIndex,				GAMESTATE->GetStageIndex() )
+ LuaFunction_NoArgs( NumStagesLeft,			GAMESTATE->GetNumStagesLeft() )
+ LuaFunction_NoArgs( IsFinalStage,			GAMESTATE->IsFinalStage() )
++LuaFunction_NoArgs( HasEarnedExtraStage,		GAMESTATE->HasEarnedExtraStage() )
+ LuaFunction_NoArgs( IsExtraStage,			GAMESTATE->IsExtraStage() )
+ LuaFunction_NoArgs( IsExtraStage2,			GAMESTATE->IsExtraStage2() )
+ LuaFunction_NoArgs( CourseSongIndex,		GAMESTATE->GetCourseSongIndex() )
